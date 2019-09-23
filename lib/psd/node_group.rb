@@ -63,6 +63,7 @@ class PSD::Node
       super.merge({
         type: :group,
         visible: visible?,
+        art_board: @layer.adjustments[:art_board] != nil,
         children: children.map(&:to_hash)
       })
     end

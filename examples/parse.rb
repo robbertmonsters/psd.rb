@@ -1,8 +1,8 @@
 require 'benchmark'
-require './lib/psd'
+require '../lib/psd.rb'
 
 psd = nil
-file = ARGV[0] || 'examples/images/example.psd'
+file = ARGV[0] || './images/1art.psd'
 results = Benchmark.measure "PSD parsing" do
   psd = PSD.new(file)
   psd.parse!

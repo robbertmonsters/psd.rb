@@ -3,6 +3,7 @@ class PSD
     module Info
       # All of the extra layer info sections that we know how to parse.
       LAYER_INFO = {
+        art_board: ArtBoard,
         blend_clipping_elements: BlendClippingElements,
         blend_interior_elements: BlendInteriorElements,
         type: TypeTool,
