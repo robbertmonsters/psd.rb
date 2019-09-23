@@ -5,8 +5,14 @@ class PSD
     @key = 'artb'
 
     def parse
-      @file.seek 3, true
-      @data = Descriptor.new(@file).parse
+      f = @file
+      f.read_path_number
+      d = Descriptor.new(f)
+      @data = d.parse
+    end
+
+    def export
+      {coords: {left: @data["artboardRect"]["Left"], top: @data["artboardRect"]["Top "], right: @data["artboardRect"]["Rght"], bottom: @data["artboardRect"]["Btom"]}}
     end
   end
 end

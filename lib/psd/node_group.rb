@@ -77,11 +77,19 @@ class PSD::Node
     private
 
     def get_dimensions
-      children = @children.reject(&:empty?)
-      @left = children.map(&:left).min || 0
-      @top = children.map(&:top).min || 0
-      @bottom = children.map(&:bottom).max || 0
-      @right = children.map(&:right).max || 0
+      if self.adjustments[:art_board] != nil
+        coords = self.adjustments[:art_board].export
+        @left = coords[:coords][:left]
+        @top = coords[:coords][:top]
+        @bottom = coords[:coords][:bottom]
+        @right = coords[:coords][:right]
+      else
+        children = @children.reject(&:empty?)
+        @left = children.map(&:left).min || 0
+        @top = children.map(&:top).min || 0
+        @bottom = children.map(&:bottom).max || 0
+        @right = children.map(&:right).max || 0
+      end
     end
   end
 end
