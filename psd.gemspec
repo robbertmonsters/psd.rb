@@ -21,7 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rake'
   gem.add_dependency 'psd-enginedata', '~> 1'
   gem.add_dependency 'chunky_png'
-  gem.add_dependency 'xmp'
+  # gem.add_dependency 'xmp'
 
   gem.test_files = Dir.glob("spec/**/*")
   gem.add_development_dependency 'rspec'
